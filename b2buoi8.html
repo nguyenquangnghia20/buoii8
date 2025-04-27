@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tìm số lớn nhất và nhỏ nhất</title>
+</head>
+<body>
+  <h3>Nhập dãy số cách nhau bằng dấu phẩy:</h3>
+  <input type="text" id="inputArray" placeholder="Ví dụ: 5,3,9,1,6">
+  <button onclick="findMinMax()">Tìm số lớn nhất và nhỏ nhất</button>
+
+  <p id="result"></p>
+
+  <script>
+    function findMinMax() {
+      let input = document.getElementById("inputArray").value;
+      let arr = input.split(",").map(Number); // Chuyển thành mảng số
+
+      if (arr.some(isNaN)) {
+        document.getElementById("result").innerText = "Vui lòng nhập đúng định dạng số.";
+        return;
+      }
+
+      let max = Math.max(...arr);
+      let min = Math.min(...arr);
+
+      document.getElementById("result").innerText = `Số lớn nhất: ${max}, Số nhỏ nhất: ${min}`;
+    }
+  </script>
+</body>
+</html>
